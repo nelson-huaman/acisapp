@@ -1,0 +1,54 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.menu {
+   @include m.lista;
+   margin: 1rem;
+
+   &__item {
+      margin-bottom: 2rem;
+      &--sub {
+         margin-bottom: 1rem;
+      }
+   }
+
+   &__enlace {
+      color: darken(v.$blanco, 40%);
+      font-weight: v.$medium;
+      white-space: nowrap;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 1rem;
+      gap: 1rem;
+
+      &:hover {
+         cursor: pointer;
+         color: v.$blanco;
+      }
+   }
+
+   &__icono {
+      &::after {
+         content: "";
+         width: .6rem;
+         height: .6rem;
+         border-bottom: 2px solid v.$blanco;
+         border-right: 2px solid v.$blanco;
+         rotate: -45grad;
+         margin-right: .2rem;
+      }
+   }
+
+   &__nombre {
+      flex-wrap: 1;
+   }
+
+   &__submenu {
+      @include m.lista;
+      padding-left: 2rem;
+      font-size: 1.2rem;
+      // display: none;
+   }
+
+}

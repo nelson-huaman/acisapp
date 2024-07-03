@@ -1,0 +1,23 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.login {
+   @include m.contenedorSM;
+   @include m.sombra;
+   padding: 4rem 3rem;
+   border-radius: 2rem;
+   margin-top: 3rem;
+
+   &__logo {
+      font-weight: v.$black;
+      display: flex;
+      justify-content: center;
+      @include m.textoFluido(3rem, 5rem);
+      @include m.textoDegradado(v.$azul, lighten(v.$azul, 20%));
+   }
+
+   &__nombre {
+      @include m.nombrePagina;
+   }
+
+}

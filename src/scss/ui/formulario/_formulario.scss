@@ -1,0 +1,37 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.formulario {
+   display: flex;
+   flex-direction: column;
+   // @include m.sombra;
+   // padding: 4rem 3rem;
+   // border-radius: 1rem;
+
+   &__campo {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.2rem 0;
+   }
+
+   &__label {
+      display: block;
+      color: rgba(v.$negro, .8);
+      padding-left: 1rem;
+   }
+
+   &__input {
+      all: unset;
+      padding: 1rem;
+      border: 1px solid lighten(v.$dark, 30%);
+      border-radius: .5rem;
+   }
+
+   &__submit {
+      @include m.boton(v.$azul, v.$blanco);
+      width: auto;
+      align-self: flex-start;
+      margin-top: 2rem;
+   }
+}
