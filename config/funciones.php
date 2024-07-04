@@ -6,3 +6,8 @@ function debuguear($variable) : string {
    echo '</pre>';
    exit;
 }
+
+function stringHTML($html) : string {
+   $s = htmlspecialchars($html);
+   return $s;
+}

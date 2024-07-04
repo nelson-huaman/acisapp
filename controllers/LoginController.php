@@ -50,4 +50,8 @@ class LoginController {
    public static function logout() {
 
    }
+
+   public static function confirmar() {
+
+   }
 }

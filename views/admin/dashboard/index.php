@@ -1,1 +1,2 @@
-<h1><?php echo $titulo; ?></h1>
+<h2 class="dashboard__heading"><?php echo $titulo; ?></h2>
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum autem rerum sed optio tempore, quam velit saepe quidem, totam quod sit dolorem asperiores a ducimus maxime! Expedita nulla nemo officia.

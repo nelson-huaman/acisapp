@@ -31,16 +31,18 @@ class Usuario extends ActiveRecord {
       $this->email = $args['email'] ?? '';
       $this->password = $args['password'] ?? '';
       $this->token = $args['token'] ?? '';
-      $this->confirmado = $args['confirmado'] ?? '';
+      $this->confirmado = $args['confirmado'] ?? 0;
       $this->rolId = $args['rolId'] ?? '';
       $this->sedeId = $args['sedeId'] ?? '';
-      $this->estado = $args['estado'] ?? '';
+      $this->estado = $args['estado'] ?? 0;
    }
 
    public function validarLogin() : array {
+
       if(!$this->email) {
          self::$alertas['error'][] = 'El correo es obligatorio';
       }
+
       if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
          self::$alertas['error'][] = 'Correo no válido';
       }
@@ -50,6 +52,59 @@ class Usuario extends ActiveRecord {
       }
 
       return self::$alertas;
+   }
+
+   public function validarUsuario() : array {
+
+      if(!$this->nombre) {
+         self::$alertas['error'][] = 'El nombre es obligatorio';
+      }
+
+      if(!$this->apellidoPaterno) {
+         self::$alertas['error'][] = 'El apellido paterno es obligatorio';
+      }
+
+      if(!$this->apellidoMaterno) {
+         self::$alertas['error'][] = 'El apellido materno es obligatorio';
+      }
+
+      if(!$this->dni) {
+         self::$alertas['error'][] = 'El DNI es obligatorio';
+      }
+
+      if(!filter_var($this->dni, FILTER_VALIDATE_INT)) {
+         self::$alertas['error'][] = 'DNI no válido';
+      }
+
+      if(!$this->email) {
+         self::$alertas['error'][] = 'El correo es obligatorio';
+      }
+
+      if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+         self::$alertas['error'][] = 'Correo no válido';
+      }
+
+      if(!$this->rolId) {
+         self::$alertas['error'][] = 'El rol es obligatorio';
+      }
+
+      if(!filter_var($this->rolId, FILTER_VALIDATE_INT)) {
+         self::$alertas['error'][] = 'Rol no válido';
+      }
+
+      if(!$this->sedeId) {
+         self::$alertas['error'][] = 'El sede es obligatorio';
+      }
+
+      if(!filter_var($this->sedeId, FILTER_VALIDATE_INT)) {
+         self::$alertas['error'][] = 'Sede no válido';
+      }
+
+      return self::$alertas;
+   }
+
+   public function crearToken() : void {
+      $this->token = uniqid();
    }
 
 }

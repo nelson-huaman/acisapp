@@ -12,11 +12,13 @@ $router = new Router;
 // Login
 $router->get('/', [LoginController::class, 'login']);
 $router->post('/', [LoginController::class, 'login']);
+$router->get('/confirmar-cuenta', [LoginController::class, 'confirmar']);
 
 // Admin
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);
 
-$router->get('/admin/asesores/index', [AsesorController::class, 'index']);
+   // Asesores
+$router->get('/admin/asesores', [AsesorController::class, 'index']);
 $router->get('/admin/asesores/crear', [AsesorController::class, 'crear']);
 $router->post('/admin/asesores/crear', [AsesorController::class, 'crear']);
 $router->get('/admin/asesores/editar', [AsesorController::class, 'editar']);

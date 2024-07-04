@@ -7,6 +7,23 @@
    flex-direction: row;
    background-color: lighten(v.$gris, 6%);
 
+   [class$="__heading"] {
+      margin: 0 0 2rem 0 ;
+      text-align: left;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+
+      &::before {
+         font-family: 'Font Awesome 6 Free';
+         content: "\f08d";
+         font-style: normal;
+         text-rendering: auto;
+         -webkit-font-smoothing: antialiased;
+      }
+   }
+
    &__grid {
       display: flex;
       flex-direction: column;
@@ -22,6 +39,40 @@
       padding: 1rem 2rem;
       width: 100%;
       overflow-y: scroll;
+   }
+
+   &__contenedor-boton {
+      @include m.tablet {
+         display: flex;
+         justify-content: flex-end;
+         margin-bottom: 2rem;
+      }
+   }
+
+   &__boton {
+      @include m.boton(v.$azul, v.$blanco);
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+
+      @include m.tablet {
+         width: auto;
+      }
+
+      i {
+         margin-right: .5rem;
+      }
+   }
+
+   &__contenedor {
+      @include m.sombra;
+      background-color: v.$blanco;
+      padding: 2rem;
+      border-radius: 1rem;
+   }
+
+   &__formulario {
+      @extend .dashboard__contenedor;
+      @include m.contenedorSM;
    }
 
 }

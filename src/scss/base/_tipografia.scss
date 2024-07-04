@@ -2,7 +2,7 @@
 @use 'mixins' as m;
 
 h1, h2, h3, h4 {
-   // @include m.heading;
+   @include m.heading;
 }
 
 h1 {
@@ -33,9 +33,9 @@ p {
 }
 
 [class$="__heading"] {
-   // @include m.nombrePagina;
+   @include m.nombrePagina;
 }
 
 [class$="__descripcion"] {
-   // @include m.decripcionPagina;
+   @include m.decripcionPagina;
 }

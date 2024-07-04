@@ -149,6 +149,19 @@ class ActiveRecord {
       return $resultado;
    }
 
+   public static function whereArrayOR($array = []) {
+      $query = "SELECT * FROM " . static::$tabla . " WHERE ";
+      foreach ($array as $key => $value) {
+         if($key == array_key_last($array)) {
+            $query .= "${key} = '${value}'";
+         } else {
+            $query .= "${key} = '${value}' OR ";
+         }
+      }
+      $resultado = self::consultarSQL($query);
+      return $resultado;
+   }
+
    public static function where($columna, $valor) {
       $query = "SELECT * FROM " . static::$tabla;
       $query .= " WHERE ${columna} = '${valor}'";

@@ -38,7 +38,7 @@
          </div>
          <ul class="menu__submenu">
             <li class="menu__item--sub">
-               <a href="/admin/asesores/index" class="menu__enlace">
+               <a href="/admin/asesores" class="menu__enlace">
                   <i class="fa-solid fa-caret-right"></i>
                   <span class="menu__nombre">Lista de Asesores</span>
                </a>
