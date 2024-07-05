@@ -12,8 +12,12 @@ class AsesorController {
 
    public static function index(Router $router) {
 
-      $pagina_actual = $_GET['page'];
-      $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+      if(!isAdmin()) {
+         header('Location: /');
+         return;
+      }
+
+      $pagina_actual = filter_var($_GET['page'], FILTER_VALIDATE_INT);
 
       if(!$pagina_actual || $pagina_actual < 1) {
          header('Location: /admin/asesores?page=1');
@@ -39,6 +43,11 @@ class AsesorController {
 
    public static function crear(Router $router) {
 
+      if(!isAdmin()) {
+         header('Location: /');
+         return;
+      }
+
       $alertas = [];
       $roles = Rol::all('ASC');
       $sedes = Sede::all('ASC');
@@ -46,6 +55,11 @@ class AsesorController {
       $usuario = new Usuario;
 
       if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+         if(!isAdmin()) {
+            header('Location: /');
+            return;
+         }
          
          $usuario->sincronizar($_POST);
          $alertas = $usuario->validarUsuario();
@@ -76,8 +90,12 @@ class AsesorController {
 
    public static function editar(Router $router) {
 
-      $alertas = [];
+      if(!isAdmin()) {
+         header('Location: /');
+         return;
+      }
 
+      $alertas = [];
       $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
       
       if(!$id) {
@@ -93,8 +111,12 @@ class AsesorController {
          header('Location: /admin/asesores');
       }
 
-
       if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+         if(!isAdmin()) {
+            header('Location: /');
+            return;
+         }
 
          $usuario->sincronizar($_POST);
          $alertas = $usuario->validar();
@@ -117,22 +139,59 @@ class AsesorController {
 
    public static function estado() {
 
-      if($_SERVER['REQUEST_METHOD'] === 'POST') {
-         $id = filter_var($_POST['id'], FILTER_VALIDATE_INT);
+      if(!isAdmin()) {
+         header('Location: /');
+         return;
+      }
 
+      if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+         if(!isAdmin()) {
+            header('Location: /');
+            return;
+         }
+
+         $id = filter_var($_POST['id'], FILTER_VALIDATE_INT);
+         $estado = filter_var($_POST['estado'], FILTER_VALIDATE_INT);
          $usuario = Usuario::find($id);
 
          if(!isset($usuario)) {
             header('Location: /admin/asesores');
          }
-         
-         $usuario->estado = 0;
 
+         $usuario->estado = ($estado == '1') ? '0' : '1';
          $resultado = $usuario->guardar();
          if($resultado) {
             header('Location: /admin/asesores');
          }
       }
 
+   }
+
+   public static function eliminar() {
+
+      if(!isAdmin()) {
+         header('Location: /');
+         return;
+      }
+
+      if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+         if(!isAdmin()) {
+            header('Location: /');
+            return;
+         }
+         
+         $id = filter_var($_POST['id'], FILTER_VALIDATE_INT);
+         $usuario = Usuario::find($id);
+         if(!isset($usuario)) {
+            header('Location: /admin/asesores');
+         }
+         $resultado = $usuario->eliminar();
+         if($resultado) {
+            header('Location: /admin/asesores');
+         }
+      }
+      
    }
 }

@@ -28,6 +28,10 @@
       }
    }
 
+   &__nombre {
+      flex-grow: 1;
+   }
+
    &__icono {
       &::after {
          content: "";
@@ -40,15 +44,25 @@
       }
    }
 
-   &__nombre {
-      flex-wrap: 1;
-   }
-
    &__submenu {
       @include m.lista;
       padding-left: 2rem;
       font-size: 1.2rem;
-      // display: none;
+      display: none;
+   }
+
+   &__activo &__enlace{
+      color: v.$blanco;
+   }
+
+   &__activo &__submenu {
+      display: block;
+   }
+
+   &__activo &__icon {
+      &::after {
+         rotate: 50grad;
+      }
    }
 
 }

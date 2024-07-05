@@ -17,14 +17,14 @@ class LoginController {
          if(empty($alertas)) {
             $usuario = Usuario::where('email', $usuario->email);
             if(!$usuario || !$usuario->confirmado) {
-               Usuario::setAlerta('error', 'El usuario no exisite p no esta confirmado');
+               Usuario::setAlerta('error', 'El usuario no exisite o no esta confirmado');
             } else {
                if(password_verify($_POST['password'], $usuario->password)) {
                   session_start();
                   $_SESSION['id'] = $usuario->id;
                   $_SESSION['nombre'] = $usuario->nombre;
                   $_SESSION['email'] = $usuario->email;
-                  $_SESSION['rol'] = $usuario->rolId;
+                  $_SESSION['admin'] = $usuario->rolId;
 
                   if($usuario->rolId === '1') {
                      header('Location: /admin/dashboard');

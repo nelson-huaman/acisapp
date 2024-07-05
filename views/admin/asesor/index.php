@@ -39,7 +39,7 @@
                   <td class="table__td">
                      <?php echo $usuario->sede->nombre; ?>
                   </td>
-                  <td class="table__td--estado">
+                  <td class="table__td">
                      <div class="table__estado table__estado--<?php echo ($usuario->estado === '1') ? 'activo' : 'inactivo'; ?>">
                         <?php echo ($usuario->estado === '1') ? 'Activo' : 'Inactivo'; ?>
                      </div>

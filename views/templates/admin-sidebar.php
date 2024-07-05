@@ -5,13 +5,13 @@
       </div>
    </div>
    <ul class="menu">
-      <li class="menu__item">
+      <li class="menu__item <?php echo paginaActual('dashboard') ? 'menu__activo' : ''; ?>">
          <a href="/admin/dashboard" class="menu__enlace">
             <i class="fa-solid fa-house"></i>
             <span class="menu__nombre">Escritorio</span>
          </a>
       </li>
-      <li class="menu__item">
+      <li class="menu__item <?php echo paginaActual('clientes') ? 'menu__activo' : ''; ?>">
          <div class="menu__enlace menu__icono">
             <i class="fa-solid fa-user-group"></i>
             <span class="menu__nombre">Clientes</span>
@@ -31,7 +31,7 @@
             </li>
          </ul>
       </li>
-      <li class="menu__item">
+      <li class="menu__item <?php echo paginaActual('asesores') ? 'menu__activo' : ''; ?>">
          <div class="menu__enlace menu__icono">
             <i class="fa-solid fa-user-tie"></i>
             <span class="menu__nombre">Asesores</span>
@@ -40,19 +40,51 @@
             <li class="menu__item--sub">
                <a href="/admin/asesores" class="menu__enlace">
                   <i class="fa-solid fa-caret-right"></i>
-                  <span class="menu__nombre">Lista de Asesores</span>
+                  <span class="menu__nombre">Asesores</span>
                </a>
             </li>
             <li class="menu__item--sub">
-               <a href="/admin/asesores/crear" class="menu__enlace">
-                  <i class="fa-solid fa-caret-right"></i>
-                  <span class="menu__nombre">Nuevo Asesor</span>
-               </a>
-            </li>
-            <li class="menu__item--sub">
-               <a href="#" class="menu__enlace">
+               <a href="/admin/asesores/roles" class="menu__enlace">
                   <i class="fa-solid fa-caret-right"></i>
                   <span class="menu__nombre">Roles</span>
+               </a>
+            </li>
+            <li class="menu__item--sub">
+               <a href="/admin/asesores/sedes" class="menu__enlace">
+                  <i class="fa-solid fa-caret-right"></i>
+                  <span class="menu__nombre">Sedes</span>
+               </a>
+            </li>
+         </ul>
+      </li>
+      <li class="menu__item <?php echo paginaActual('servicios') ? 'menu__activo' : ''; ?>">
+         <div class="menu__enlace menu__icono">
+            <i class="fa-solid fa-user-tie"></i>
+            <span class="menu__nombre">Servicios</span>
+         </div>
+         <ul class="menu__submenu">
+            <li class="menu__item--sub">
+               <a href="/admin/servicios" class="menu__enlace">
+                  <i class="fa-solid fa-caret-right"></i>
+                  <span class="menu__nombre">Programas</span>
+               </a>
+            </li>
+            <li class="menu__item--sub">
+               <a href="/admin/servicios/categorias" class="menu__enlace">
+                  <i class="fa-solid fa-caret-right"></i>
+                  <span class="menu__nombre">Categorias</span>
+               </a>
+            </li>
+            <li class="menu__item--sub">
+               <a href="/admin/servicios/modalidades" class="menu__enlace">
+                  <i class="fa-solid fa-caret-right"></i>
+                  <span class="menu__nombre">Modalidades</span>
+               </a>
+            </li>
+            <li class="menu__item--sub">
+               <a href="/admin/servicios/promociones" class="menu__enlace">
+                  <i class="fa-solid fa-caret-right"></i>
+                  <span class="menu__nombre">Promociones</span>
                </a>
             </li>
          </ul>
