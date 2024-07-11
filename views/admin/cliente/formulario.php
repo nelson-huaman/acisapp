@@ -58,26 +58,26 @@
    <div class="formulario__campo">
       <label for="rol" class="formulario__label">Asignar un rol</label>
       <select
-         name="idRol"
+         name="rolId"
          id="rol"
          class="formulario__select"
       >
          <option value="">-- Seleccionar --</option>
          <?php foreach($roles as $rol) { ?>
-            <option <?php echo ($usuario->idRol === $rol->id) ? 'selected' : ''; ?> value="<?php echo $rol->id; ?>"><?php echo $rol->nombre; ?></option>
+            <option <?php echo ($usuario->rolId === $rol->id) ? 'selected' : ''; ?> value="<?php echo $rol->id; ?>"><?php echo $rol->nombre; ?></option>
          <?php } ?>
       </select>
    </div>
    <div class="formulario__campo">
       <label for="sede" class="formulario__label">Sede</label>
       <select
-         name="idSede"
+         name="sedeId"
          id="sede"
          class="formulario__select"
       >
          <option value="">-- Seleccionar --</option>
          <?php foreach($sedes as $sede) { ?>
-            <option <?php echo ($usuario->idSede === $sede->id) ? 'selected' : ''; ?> value="<?php echo $sede->id; ?>"><?php echo $sede->nombre; ?></option>
+            <option <?php echo ($usuario->sedeId === $sede->id) ? 'selected' : ''; ?> value="<?php echo $sede->id; ?>"><?php echo $sede->nombre; ?></option>
          <?php } ?>
       </select>
    </div>

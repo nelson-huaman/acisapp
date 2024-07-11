@@ -2,9 +2,9 @@
 
 namespace Model;
 
-class Modalidad extends ActiveRecord {
+class Cliente extends ActiveRecord {
 
-   protected static $tabla = 'modalidad';
+   protected static $tabla = 'categoria';
    protected static $columnasDB = ['id', 'nombre', 'estado'];
 
    public $id;
@@ -16,13 +16,13 @@ class Modalidad extends ActiveRecord {
       $this->nombre = $args['nombre'] ?? '';
       $this->estado = $args['estado'] ?? 1;
    }
-
-   public function validarModalidad() : array {
+   
+   public function validarCategoria() : array {
       if(!$this->nombre) {
          self::$alertas['error'][] = 'El nombre es obligatorio';
       }
 
       return self::$alertas;
    }
-
+   
 }

@@ -2,9 +2,12 @@
 
 use Controllers\AsesorController;
 use Controllers\CategoriaController;
+use Controllers\ClienteController;
 use Controllers\DashboardController;
+use Controllers\GradoController;
 use Controllers\LoginController;
 use Controllers\ModalidadController;
+use Controllers\ProfesionController;
 use Controllers\PromocionController;
 use Controllers\RolController;
 use Controllers\SedeController;
@@ -85,5 +88,30 @@ $router->get('/admin/servicios/promociones/editar', [PromocionController::class,
 $router->post('/admin/servicios/promociones/editar', [PromocionController::class, 'editar']);
 $router->post('/admin/servicios/promociones/estado', [PromocionController::class, 'estado']);
 $router->post('/admin/servicios/promociones/eliminar', [PromocionController::class, 'eliminar']);
+
+// Cliente
+$router->get('/admin/clientes', [ClienteController::class, 'index']);
+$router->get('/admin/clientes/crear', [ClienteController::class, 'crear']);
+$router->post('/admin/clientes/crear', [ClienteController::class, 'crear']);
+$router->get('/admin/clientes/editar', [ClienteController::class, 'editar']);
+$router->post('/admin/clientes/editar', [ClienteController::class, 'editar']);
+$router->post('/admin/clientes/estado', [ClienteController::class, 'estado']);
+$router->post('/admin/clientes/eliminar', [ClienteController::class, 'eliminar']);
+
+$router->get('/admin/clientes/profesiones', [ProfesionController::class, 'index']);
+$router->get('/admin/clientes/profesiones/crear', [ProfesionController::class, 'crear']);
+$router->post('/admin/clientes/profesiones/crear', [ProfesionController::class, 'crear']);
+$router->get('/admin/clientes/profesiones/editar', [ProfesionController::class, 'editar']);
+$router->post('/admin/clientes/profesiones/editar', [ProfesionController::class, 'editar']);
+$router->post('/admin/clientes/profesiones/estado', [ProfesionController::class, 'estado']);
+$router->post('/admin/clientes/profesiones/eliminar', [ProfesionController::class, 'eliminar']);
+
+$router->get('/admin/clientes/grados', [GradoController::class, 'index']);
+$router->get('/admin/clientes/grados/crear', [GradoController::class, 'crear']);
+$router->post('/admin/clientes/grados/crear', [GradoController::class, 'crear']);
+$router->get('/admin/clientes/grados/editar', [GradoController::class, 'editar']);
+$router->post('/admin/clientes/grados/editar', [GradoController::class, 'editar']);
+$router->post('/admin/clientes/grados/estado', [GradoController::class, 'estado']);
+$router->post('/admin/clientes/grados/eliminar', [GradoController::class, 'eliminar']);
 
 $router->comprobarURL();

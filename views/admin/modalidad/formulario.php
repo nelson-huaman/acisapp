@@ -1,5 +1,5 @@
 <fieldset class="formulario__fieldset">
-   <legend class="formulario__legend">Información del Rol</legend>
+   <legend class="formulario__legend">Información de la Modalidad</legend>
    <div class="formulario__campo">
       <label for="nombre" class="formulario__label">Nombre</label>
       <input
@@ -7,7 +7,7 @@
          name="nombre"
          id="nombre"
          placeholder="Nombre"
-         value="<?php echo stringHTML($sede->nombre ?? ''); ?>"
+         value="<?php echo stringHTML($modalidad->nombre ?? ''); ?>"
          class="formulario__input"
       >
    </div>

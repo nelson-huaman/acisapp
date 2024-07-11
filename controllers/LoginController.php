@@ -24,9 +24,9 @@ class LoginController {
                   $_SESSION['id'] = $usuario->id;
                   $_SESSION['nombre'] = $usuario->nombre;
                   $_SESSION['email'] = $usuario->email;
-                  $_SESSION['admin'] = $usuario->rolId;
+                  $_SESSION['admin'] = $usuario->idRol;
 
-                  if($usuario->rolId === '1') {
+                  if($usuario->idRol === '1') {
                      header('Location: /admin/dashboard');
                   } else {
                      header('Location: /asesor/dashborad');

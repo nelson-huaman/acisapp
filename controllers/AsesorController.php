@@ -30,8 +30,8 @@ class AsesorController {
       $usuarios = Usuario::paginar($por_pagina, $paginacion->offet());
 
       foreach ($usuarios as $usuario) {
-         $usuario->rol = Rol::find($usuario->rolId);
-         $usuario->sede = Sede::find($usuario->sedeId);
+         $usuario->rol = Rol::find($usuario->idRol);
+         $usuario->sede = Sede::find($usuario->idSede);
       }
 
       $router->renderizar('admin/asesor/index', [

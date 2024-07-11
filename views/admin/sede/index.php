@@ -12,7 +12,7 @@
       <table class="table">
          <thead class="table__thead">
             <tr>
-               <th scope="col" class="table__th">Nombres</th>
+               <th scope="col" class="table__th">Nombre</th>
                <th scope="col" class="table__th">Estado</th>
                <th scope="col" class="table__th"></th>
             </tr>

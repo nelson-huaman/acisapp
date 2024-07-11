@@ -5,7 +5,7 @@ namespace Model;
 class Usuario extends ActiveRecord {
 
    protected static $tabla = 'usuario';
-   protected static $columnasDB = ['id', 'nombre', 'apellidoPaterno', 'apellidoMaterno', 'dni', 'username', 'email', 'password', 'token', 'confirmado', 'rolId', 'sedeId', 'estado'];
+   protected static $columnasDB = ['id', 'nombre', 'apellidoPaterno', 'apellidoMaterno', 'dni', 'username', 'email', 'password', 'token', 'confirmado', 'idRol', 'idSede', 'estado'];
 
    public $id;
    public $nombre;
@@ -17,8 +17,8 @@ class Usuario extends ActiveRecord {
    public $password;
    public $token;
    public $confirmado;
-   public $rolId;
-   public $sedeId;
+   public $idRol;
+   public $idSede;
    public $estado;
 
    public function __construct($args = []) {
@@ -32,8 +32,8 @@ class Usuario extends ActiveRecord {
       $this->password = $args['password'] ?? '';
       $this->token = $args['token'] ?? '';
       $this->confirmado = $args['confirmado'] ?? 0;
-      $this->rolId = $args['rolId'] ?? '';
-      $this->sedeId = $args['sedeId'] ?? '';
+      $this->idRol = $args['idRol'] ?? '';
+      $this->idSede = $args['idSede'] ?? '';
       $this->estado = $args['estado'] ?? 0;
    }
 
@@ -84,19 +84,19 @@ class Usuario extends ActiveRecord {
          self::$alertas['error'][] = 'Correo no válido';
       }
 
-      if(!$this->rolId) {
+      if(!$this->idRol) {
          self::$alertas['error'][] = 'El rol es obligatorio';
       }
 
-      if(!filter_var($this->rolId, FILTER_VALIDATE_INT)) {
+      if(!filter_var($this->idRol, FILTER_VALIDATE_INT)) {
          self::$alertas['error'][] = 'Rol no válido';
       }
 
-      if(!$this->sedeId) {
+      if(!$this->idSede) {
          self::$alertas['error'][] = 'El sede es obligatorio';
       }
 
-      if(!filter_var($this->sedeId, FILTER_VALIDATE_INT)) {
+      if(!filter_var($this->idSede, FILTER_VALIDATE_INT)) {
          self::$alertas['error'][] = 'Sede no válido';
       }
 

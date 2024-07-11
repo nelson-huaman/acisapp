@@ -14,19 +14,25 @@
       <li class="menu__item <?php echo paginaActual('clientes') ? 'menu__activo' : ''; ?>">
          <div class="menu__enlace menu__icono">
             <i class="fa-solid fa-user-group"></i>
-            <span class="menu__nombre">Clientes</span>
+            <span class="menu__nombre">Cliente</span>
          </div>
          <ul class="menu__submenu">
             <li class="menu__item--sub">
-               <a href="#" class="menu__enlace">
+               <a href="/admin/clientes" class="menu__enlace">
                   <i class="fa-solid fa-caret-right"></i>
-                  <span class="menu__nombre">Lista de Clientes</span>
+                  <span class="menu__nombre">Clientes</span>
                </a>
             </li>
             <li class="menu__item--sub">
-               <a href="#" class="menu__enlace">
+               <a href="/admin/clientes/profesiones" class="menu__enlace">
                   <i class="fa-solid fa-caret-right"></i>
-                  <span class="menu__nombre">Nuevo Cliente</span>
+                  <span class="menu__nombre">Profesiones</span>
+               </a>
+            </li>
+            <li class="menu__item--sub">
+               <a href="/admin/clientes/grados" class="menu__enlace">
+                  <i class="fa-solid fa-caret-right"></i>
+                  <span class="menu__nombre">Grados Académicos</span>
                </a>
             </li>
          </ul>
@@ -34,7 +40,7 @@
       <li class="menu__item <?php echo paginaActual('asesores') ? 'menu__activo' : ''; ?>">
          <div class="menu__enlace menu__icono">
             <i class="fa-solid fa-user-tie"></i>
-            <span class="menu__nombre">Asesores</span>
+            <span class="menu__nombre">Asesor</span>
          </div>
          <ul class="menu__submenu">
             <li class="menu__item--sub">
@@ -60,7 +66,7 @@
       <li class="menu__item <?php echo paginaActual('servicios') ? 'menu__activo' : ''; ?>">
          <div class="menu__enlace menu__icono">
             <i class="fa-solid fa-user-tie"></i>
-            <span class="menu__nombre">Servicios</span>
+            <span class="menu__nombre">Servicio</span>
          </div>
          <ul class="menu__submenu">
             <li class="menu__item--sub">

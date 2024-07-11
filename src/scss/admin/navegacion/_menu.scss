@@ -3,12 +3,27 @@
 
 .menu {
    @include m.lista;
-   margin: 1rem;
 
    &__item {
-      margin-bottom: 2rem;
+      padding: 1rem;
+      // margin-bottom: .5rem;
+      
+      i {
+         width: 1.8rem;
+         text-align: center;
+      }
+
       &--sub {
-         margin-bottom: 1rem;
+         i {
+            width: auto;
+         }
+      }
+
+      &:hover {
+         cursor: pointer;
+         background-color: lighten(v.$dark, 0%);
+         transition: background-color .5s ease;
+         color: v.$blanco;
       }
    }
 
@@ -21,11 +36,6 @@
       align-items: center;
       margin-bottom: 1rem;
       gap: 1rem;
-
-      &:hover {
-         cursor: pointer;
-         color: v.$blanco;
-      }
    }
 
    &__nombre {
@@ -51,6 +61,10 @@
       display: none;
    }
 
+   &__activo {
+      background-color: lighten(v.$dark, 0%);
+   }
+
    &__activo &__enlace{
       color: v.$blanco;
    }
@@ -59,7 +73,7 @@
       display: block;
    }
 
-   &__activo &__icon {
+   &__activo &__icono {
       &::after {
          rotate: 50grad;
       }
