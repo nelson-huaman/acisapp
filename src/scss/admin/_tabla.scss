@@ -4,6 +4,7 @@
 .table {
    width: 100%;
    border-collapse: collapse;
+   overflow: scroll;
 
    &__thead {
       background-color: lighten(v.$dark, 15%);
@@ -22,14 +23,19 @@
    }
 
    &__td {
-      padding: 1rem;
+      padding: .6rem 1rem;
       font-size: 1.3rem;
+   }
 
-      &--acciones {
-         @extend .table__td;
-         display: flex;
-         justify-content: flex-end;
-         align-items: center;
+   &__acciones {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-align: right;
+      gap: .5rem;
+
+      @include m.desktop {
+         flex-direction: row;
          gap: 1rem;
       }
    }

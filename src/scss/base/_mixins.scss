@@ -119,6 +119,14 @@
          font-family: 'Font Awesome 6 Brands';
       }
 
+      &[href*="acis.edu.pe"]::before {
+         content: "\f411";
+      }
+
+      &[href*="acis.pe"]::before {
+         content: "\f837";
+      }
+
       &[href*="facebook.com"]::before {
          content: "\f39e";
       }

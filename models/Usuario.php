@@ -34,7 +34,7 @@ class Usuario extends ActiveRecord {
       $this->confirmado = $args['confirmado'] ?? 0;
       $this->idRol = $args['idRol'] ?? '';
       $this->idSede = $args['idSede'] ?? '';
-      $this->estado = $args['estado'] ?? 0;
+      $this->estado = $args['estado'] ?? 1;
    }
 
    public function validarLogin() : array {
@@ -72,8 +72,9 @@ class Usuario extends ActiveRecord {
          self::$alertas['error'][] = 'El DNI es obligatorio';
       }
 
-      if(!filter_var($this->dni, FILTER_VALIDATE_INT)) {
-         self::$alertas['error'][] = 'DNI no válido';
+      // registra numero con ceros adelante 
+      if (!ctype_digit($this->dni)) {
+         self::$alertas['error'][] = 'DNI no válido. Solo se permiten números.';
       }
 
       if(!$this->email) {

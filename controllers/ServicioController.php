@@ -22,7 +22,7 @@ class ServicioController {
          header('Location: /admin/servicios?page=1');
       }
 
-      $por_pagina = 10;
+      $por_pagina = 20;
       $total = Servicio::total();
 
       $paginacion = new Paginacion($pagigin_actual, $por_pagina, $total);

@@ -21,6 +21,7 @@ $router = new Router;
 // Login
 $router->get('/', [LoginController::class, 'login']);
 $router->post('/', [LoginController::class, 'login']);
+$router->post('/logout', [LoginController::class, 'logout']);
 $router->get('/confirmar', [LoginController::class, 'confirmar']);
 $router->post('/confirmar', [LoginController::class, 'confirmar']);
 $router->get('/olvide', [LoginController::class, 'olvide']);
@@ -113,5 +114,7 @@ $router->get('/admin/clientes/grados/editar', [GradoController::class, 'editar']
 $router->post('/admin/clientes/grados/editar', [GradoController::class, 'editar']);
 $router->post('/admin/clientes/grados/estado', [GradoController::class, 'estado']);
 $router->post('/admin/clientes/grados/eliminar', [GradoController::class, 'eliminar']);
+
+
 
 $router->comprobarURL();

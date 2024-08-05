@@ -2,18 +2,43 @@
 @use 'base/mixins' as m;
 
 .sidebar {
-   background-color: lighten(v.$dark, 3%);
-   width: 25rem;
-   bottom: 0;
-   overflow-y: scroll;
-
-   &__logo {
-      color: v.$blanco;
-      font-weight: v.$bold;
-      padding: 1.7rem;
-      text-align: center;
-      font-size: 2rem;
-      border-bottom: 2px solid lighten(v.$dark, 8%);
-      margin-bottom: 3rem;
+   @include m.desktop {
+      background-color: darken(v.$azul, 25%);
    }
+   &__nav {
+
+      &::before {
+         content: '';
+         position: fixed;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         z-index: -1;
+         transition: background-color .5s;
+
+         @include m.desktop {
+            display: none;
+         }
+      }
+   }
+
+   &__show {
+
+      &::before {
+         background-color: rgba(v.$negro, .5);
+         z-index: 1;
+      }
+
+      .menu {
+         transform: translate3d(0, 0, 0);
+         transition-duration: .7s;
+         transition-delay: .4s;
+         box-shadow: rgba(v.$negro, .2) 0 0 4rem 0.5rem;
+      }
+   }
+}
+
+.show {
+   display: none;
 }
