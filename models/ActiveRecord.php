@@ -108,8 +108,11 @@ class ActiveRecord {
       return $objeto;
    }
 
-   public static function all($orden = 'DESC') {
+   public static function all($orden = 'DESC', $estado = '') {
       $query = "SELECT * FROM " . static::$tabla;
+      if($estado === 1) {
+         $query .= " WHERE estado = ${estado}";
+      }
       $query .= " ORDER BY id ${orden}";
       $resultado = self::consultarSQL($query);
       return $resultado;
@@ -129,9 +132,14 @@ class ActiveRecord {
       return $resultado;
    }
 
-   public static function paginar($por_pagina, $offset) {
+   public static function paginar($por_pagina, $offset, $estado = '') {
       $query = "SELECT * FROM " . static::$tabla;
+      if($estado === 1) {
+         $query .= " WHERE estado = ${estado}";
+      }
       $query .= " ORDER BY id DESC LIMIT ${por_pagina} OFFSET ${offset}";
+
+      // echo $query;
       $resultado = self::consultarSQL($query);
       return $resultado;
    }
@@ -167,6 +175,17 @@ class ActiveRecord {
       $query .= " WHERE ${columna} = '${valor}'";
       $resultado = self::consultarSQL($query);
       return array_shift($resultado);
+   }
+
+   public static function whereID($columna, $valor) {
+      $query = "SELECT * FROM " . static::$tabla;
+      $query .= " WHERE ${columna} = '${valor}'";
+      $resultado = self::consultarSQL($query);
+      return $resultado;
+   }
+
+   public static function findID($id) {
+      return self::where('id', $id);
    }
 
    public static function ordenar($columna, $orden) {

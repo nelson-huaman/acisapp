@@ -4,32 +4,41 @@
 .table {
    width: 100%;
    border-collapse: collapse;
-   overflow: scroll;
+   white-space: nowrap;
+   @include m.desktop {
+      white-space: normal;
+   }
 
    &__thead {
-      background-color: lighten(v.$dark, 15%);
+      background-color: adjust-color(v.$dark, $lightness: -15%);
       color: v.$blanco;
    }
 
    &__th {
-      padding: 1rem;
+      padding: .7rem 1rem;
       text-align: left;
+      font-size: 1.1rem;
+      font-weight: v.$regular;
    }
 
    &__tr {
       &:nth-child(even) {
-         background-color: lighten(v.$gris, 2%);
+         background-color: adjust-color(v.$gris, $lightness: 2%);
       }
    }
 
    &__td {
       padding: .6rem 1rem;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
+
+      &--noregistro {
+         text-align: center;
+      }
    }
 
    &__acciones {
       display: flex;
-      flex-direction: column;
+      // flex-direction: column;
       justify-content: flex-end;
       text-align: right;
       gap: .5rem;
@@ -45,7 +54,7 @@
       font-weight: v.$bold;
 
       &--activo {
-         color: darken(v.$exito, 15%);
+         color: adjust-color(v.$exito, $lightness: -15%);
       }
 
       &--inactivo {

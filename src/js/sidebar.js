@@ -1,40 +1,21 @@
 (function() {
 
-   const sidebarMenu = document.querySelector('#sidebar')
-   if(sidebarMenu) {
+   const sidebar = document.querySelector('#sidebar')
+   if(sidebar) {
 
-      const openMenu = document.querySelector(".header__open")
-      const menu = document.querySelector(".header__menu")
-      const closeMenu = document.querySelector(".menu__close")
-      const navegacion = document.querySelector(".sidebar__nav")
-      const usuario = document.querySelector(".header__usuario")
-      const divUsuario = document.querySelector(".header__perfil")
+      const openMenuMobil = document.querySelector(".header__open-mobil")
+      const openMenuPC = document.querySelector(".header__open-pc")
+      const closeMenu = document.querySelector(".sidebar__close")
       const showMenu = "sidebar__show"
       const noTransition = "no-transition"
       let resize
 
-      openMenu.addEventListener("click", () => {
-         navegacion.classList.add(showMenu)
-      })
-
-      closeMenu.addEventListener("click", () => {
-         navegacion.classList.remove(showMenu)
-      })
-
-      menu.addEventListener("click", () => {
-         sidebarMenu.classList.toggle('show')
-      })
-
-      usuario.addEventListener("click", () => {
-         divUsuario.classList.toggle('header__show')
-      })
-
-      navegacion.addEventListener("click", () => {
-         navegacion.classList.remove(showMenu)
-      })
-
+      openMenuMobil.addEventListener("click", () => sidebar.classList.add(showMenu) );
+      openMenuPC.addEventListener("click", () => sidebar.classList.toggle('sidebar__toogle') );
+      closeMenu.addEventListener("click", () => sidebar.classList.remove(showMenu) );
+ 
       window.addEventListener("resize", () => {
-         header.querySelectorAll("*").forEach(function(el) {
+         sidebar.querySelectorAll("*").forEach(function(el) {
             el.classList.add(noTransition)
          })
          clearInterval(resize)
@@ -42,7 +23,7 @@
       })
 
       function resizingComplete() {
-         header.querySelectorAll("*").forEach(function(el) {
+         sidebar.querySelectorAll("*").forEach(function(el) {
             el.classList.remove(noTransition)
          })
       }
@@ -58,7 +39,6 @@
             }
          })
       })
-      
    }
    
 })();

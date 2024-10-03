@@ -1,6 +1,6 @@
 <fieldset class="formulario__fieldset">
    <legend class="formulario__legend">Información de la Promoción</legend>
-   <div class="formulario__campo">
+   <div class="formulario__row">
       <label for="nombre" class="formulario__label">Nombre</label>
       <input
          type="text"
@@ -11,7 +11,7 @@
          class="formulario__input"
       >
    </div>
-   <div class="formulario__campo">
+   <div class="formulario__row">
       <label for="descripcion" class="formulario__label">Descripción</label>
       <textarea
          name="descripcion"

@@ -2,33 +2,34 @@
 @use 'base/mixins' as m;
 
 .menu {
-   position: fixed;
-   top: 0;
-   left: 0;
-   bottom: 0;
-   z-index: 2;
-   display: flex;
-   flex-direction: column;
-   width: 80%;
-   overflow: auto;
-   background-color: darken(v.$azul, 30%);
-   padding: 2rem;
-   transform: translate3d(-100%, 0, 0);
-   transition: transform .4s cubic-bezier(0.23, 1, 0.32, 1);
-   @include m.lista;
+   // position: fixed;
+   // top: 0;
+   // left: 0;
+   // bottom: 0;
+   // z-index: 2;
+   // display: flex;
+   // flex-direction: column;
+   // width: 80%;
+   // overflow: auto;
+   // background-color: adjust-color(v.$azul, $lightness: -30%);
+   // padding: 2rem;
+   // transform: translate3d(-100%, 0, 0);
+   // transition: transform .4s cubic-bezier(0.23, 1, 0.32, 1);
+   // @include m.lista;
 
-   @include m.tablet {
-      width: 60%;
-   }
+   // @include m.tablet {
+   //    width: 60%;
+   // }
 
-   @include m.desktop {
-      position: static;
-      width: 30rem;
-      background-color: transparent;
-      transform: none;
-      padding: 0;
-      box-shadow: none;
-   }
+   // @include m.desktop {
+   //    position: static;
+   //    width: 100%;
+   //    background-color: transparent;
+   //    transform: none;
+   //    padding: 0;
+   //    box-shadow: none;
+      
+   // }
 
    &__header {
       display: flex;
@@ -43,6 +44,7 @@
 
    &__logo {
       max-width: 10rem;
+      min-width: 10rem;
    }
 
    &__close {
@@ -52,7 +54,7 @@
       }
 
       &:hover {
-         color: darken(v.$blanco, 10%);
+         color: adjust-color(v.$blanco, $lightness: -10%);
       }
 
       @include m.desktop {
@@ -77,14 +79,14 @@
 
       &:hover {
          cursor: pointer;
-         background-color: lighten(v.$dark, 0%);
+         background-color: adjust-color(v.$dark, $lightness: 0%);
          transition: background-color .5s ease;
          color: v.$blanco;
       }
    }
 
    &__enlace {
-      color: darken(v.$blanco, 40%);
+      color: adjust-color(v.$blanco, $lightness: -40%);
       font-weight: v.$medium;
       white-space: nowrap;
       display: flex;
@@ -117,7 +119,7 @@
    }
 
    &__activo {
-      background-color: lighten(v.$dark, 0%);
+      background-color: adjust-color(v.$dark, $lightness: 0%);
    }
 
    &__activo &__enlace{

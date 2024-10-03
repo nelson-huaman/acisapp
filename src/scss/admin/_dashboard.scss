@@ -5,7 +5,7 @@
    height: 100%;
    display: flex;
    flex-direction: row;
-   background-color: lighten(v.$gris, 6%);
+   background-color: adjust-color(v.$gris, $lightness: 6%);
 
    [class$="__heading"] {
       margin: 0 0 2rem 0 ;
@@ -28,11 +28,12 @@
       display: flex;
       flex-direction: column;
       flex: 1;
+      width: 100%;
    }
 
    &__header {
       padding: 1.5rem 2rem;
-      background-color: lighten(v.$dark, 4%);
+      background-color: adjust-color(v.$dark, $lightness: 4%);
    }
 
    &__contenido {
@@ -74,7 +75,8 @@
 
       &--tabla {
          padding: 0;
-         overflow: auto;
+         overflow-x: auto;
+         padding-bottom: 1.5rem
       }
    }
 

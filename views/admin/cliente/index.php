@@ -14,12 +14,12 @@
             <tr>
                <th scope="col" class="table__th">Tipo</th>
                <th scope="col" class="table__th">Documento</th>
+               <th scope="col" class="table__th">Grado</th>
                <th scope="col" class="table__th">Nombre</th>
                <th scope="col" class="table__th">Apellidos</th>
                <th scope="col" class="table__th">Correo</th>
                <th scope="col" class="table__th">Teléfono</th>
                <th scope="col" class="table__th">Profesión</th>
-               <th scope="col" class="table__th">Grado</th>
                <th scope="col" class="table__th">Estado</th>
                <th scope="col" class="table__th"></th>
             </tr>
@@ -34,6 +34,9 @@
                      <?php echo $usuario->numeroDocumento; ?>
                   </td>
                   <td class="table__td">
+                     <?php echo $usuario->grado->gradoAcademico; ?>
+                  </td>
+                  <td class="table__td">
                      <?php echo $usuario->nombre; ?>
                   </td>
                   <td class="table__td">
@@ -43,13 +46,10 @@
                      <?php echo $usuario->email; ?>
                   </td>
                   <td class="table__td">
-                     <?php echo $usuario->numeroDocumento; ?>
+                     <?php echo $usuario->telefono; ?>
                   </td>
                   <td class="table__td">
-                     <?php echo $usuario->prefesion->profesion; ?>
-                  </td>
-                  <td class="table__td">
-                     <?php echo $usuario->grado->gradoAcademico; ?>
+                     <?php echo $usuario->profesion->profesion; ?>
                   </td>
                   <td class="table__td">
                      <div class="table__estado table__estado--<?php echo ($usuario->estado === '1') ? 'activo' : 'inactivo'; ?>">
@@ -65,7 +65,7 @@
                            <input type="hidden" name="id" value="<?php echo $usuario->id; ?>">
                            <input type="hidden" name="estado" value="<?php echo $usuario->estado; ?>">
                            <button class="table__accion table__accion--estado" type="submit" title="<?php echo ($usuario->estado === '1') ? 'Desactivar' : 'Activar'; ?>">
-                              <i class="fa-solid fa-<?php echo ($usuario->estado === '1') ? 'eye' : 'eye-slash'; ?>"></i>
+                              <i class="fa-solid fa-<?php echo ($usuario->estado === '1') ? 'toggle-on' : 'toggle-off'; ?>"></i>
                            </button>
                         </form>
                         <form action="/admin/clientes/eliminar" method="POST" class="table__formulario">

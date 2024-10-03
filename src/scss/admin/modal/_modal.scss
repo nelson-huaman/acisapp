@@ -1,0 +1,74 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.modal {
+   position: absolute;
+   background-color: rgb(0 0 0 / .8);
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+
+   .formulario {
+      max-width: 60rem;
+      max-height: 90%;
+      background-color: v.$blanco;
+      padding: 2rem;
+      border-radius: 1rem;
+      margin: 0 auto;
+      transform: translateY(-30rem);
+      transition-property: all;
+      transition-timing-function: ease-in-out;
+      transition-duration: 300ms;
+      opacity: 0;
+      overflow-x: scroll;
+
+      legend {
+         font-size: 2rem;
+         text-align: center;
+         font-weight: bold;
+         margin-bottom: 2rem;
+         width: 100%;
+      }
+
+      // input[type="text"] {
+      //    border: 1px solid v.$gris;
+      // }
+
+      .opciones {
+         display: flex;
+         justify-content: space-between;
+         gap: 1rem;
+         align-items: center;
+         padding-top: 2rem;
+
+         
+
+         .registro-nuevo {
+            @include m.boton(v.$azul, v.$blanco);
+         }
+
+         .cerrar-modal {
+            @include m.boton(v.$aviso, v.$blanco);
+         }
+
+         input, button {
+            margin: 0;
+            padding: 1rem
+         }
+
+      }
+      
+      &.animar {
+         position: relative;
+         top: 50%;
+         transform: translateY(-50%);
+         opacity: 1;
+      }
+
+      &.cerrar {
+         transform: translateY(-200%);
+         opacity: 0;
+      }
+   }
+}

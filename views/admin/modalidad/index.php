@@ -37,7 +37,7 @@
                            <input type="hidden" name="id" value="<?php echo $modalidad->id; ?>">
                            <input type="hidden" name="estado" value="<?php echo $modalidad->estado; ?>">
                            <button class="table__accion table__accion--estado" type="submit" title="<?php echo ($modalidad->estado === '1') ? 'Desactivar' : 'Activar'; ?>">
-                              <i class="fa-solid fa-<?php echo ($modalidad->estado === '1') ? 'eye' : 'eye-slash'; ?>"></i>
+                              <i class="fa-solid fa-<?php echo ($modalidad->estado === '1') ? 'toggle-on' : 'toggle-off'; ?>"></i>
                            </button>
                         </form>
                         <form action="/admin/servicios/modalidades/eliminar" method="POST" class="table__formulario">

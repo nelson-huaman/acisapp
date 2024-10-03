@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Model\Rol;
 use Model\Usuario;
 use MVC\Router;
 
@@ -22,14 +23,17 @@ class LoginController {
                if(password_verify($_POST['password'], $usuario->password)) {
                   session_start();
                   $_SESSION['id'] = $usuario->id;
-                  $_SESSION['nombre'] = $usuario->nombre;
-                  $_SESSION['email'] = $usuario->email;
-                  $_SESSION['admin'] = $usuario->idRol;
+                  $_SESSION['nombre'] = $usuario->nombre . ' ' . $usuario->apellidoPaterno;
+                  $_SESSION['username'] = $usuario->username;
+                  $_SESSION['rol'] = Rol::find($usuario->idRol);
+
+                  // debuguear($_SESSION);
 
                   if($usuario->idRol === '1') {
+                     $_SESSION['admin'] = $usuario->idRol;
                      header('Location: /admin/dashboard');
                   } else {
-                     header('Location: /asesor/dashborad');
+                     header('Location: /asesor/dashboard');
                   }
 
                } else {

@@ -1,6 +1,6 @@
 <fieldset class="formulario__fieldset">
    <legend class="formulario__legend">Información de la Categoría</legend>
-   <div class="formulario__campo">
+   <div class="formulario__row">
       <label for="nombre" class="formulario__label">Nombre</label>
       <input
          type="text"

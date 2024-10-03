@@ -6,14 +6,14 @@
    font-weight: v.$bold;
 
    &--error {
-      background-color: lighten(v.$error, 60%);
+      background-color: adjust-color(v.$error, $lightness: 60%);
       border-left: .5rem solid v.$error;
       color: v.$error;
    }
 
    &--exito {
-      background-color: lighten(v.$exito, 40%);
+      background-color: adjust-color(v.$exito, $lightness: 40%);
       border-left: .5rem solid v.$exito;
-      color: darken(v.$exito, 20%);
+      color: adjust-color(v.$exito, $lightness: -20%);
    }
 }

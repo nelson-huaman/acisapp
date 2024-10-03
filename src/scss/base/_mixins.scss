@@ -40,7 +40,7 @@
    display: inline-block;
 
    &:hover {
-      background-color: darken($fondo, 15%);
+      background-color: adjust-color($fondo, $lightness: -10%);
       cursor: pointer;
    }
 }
@@ -159,7 +159,7 @@
 
 @mixin enlace {
    all: unset;
-   color: v.$blanco;
+   color: v.$azul;
    font-size: 1.4rem;
    text-transform: uppercase;
    font-weight: v.$bold;

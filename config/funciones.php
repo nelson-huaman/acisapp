@@ -20,7 +20,8 @@ function isLogin() : bool {
    if(!isset($_SESSION)) {
       session_start();
    }
-   return isset($_SESSION['username']) && !empty($_SESSION);
+   // return $_SESSION;
+   return isset($_SESSION['username']) && !empty($_SESSION['username']);
 }
 
 function isAdmin() : bool {

@@ -13,7 +13,7 @@
       display: flex;
       justify-content: center;
       @include m.textoFluido(3rem, 5rem);
-      @include m.textoDegradado(v.$azul, lighten(v.$azul, 20%));
+      @include m.textoDegradado(v.$azul, adjust-color(v.$azul, $lightness: 20%));
    }
 
    &__nombre {

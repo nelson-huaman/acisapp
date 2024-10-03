@@ -1,6 +1,6 @@
 <fieldset class="formulario__fieldset">
    <legend class="formulario__legend">Información de la Prefesión</legend>
-   <div class="formulario__campo">
+   <div class="formulario__row">
       <label for="profesion" class="formulario__label">Nombres de la profesión</label>
       <input
          type="text"

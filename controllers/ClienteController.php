@@ -2,11 +2,11 @@
 
 namespace Controllers;
 
-use Classes\Paginacion;
-use Model\Cliente;
-use Model\Grado;
-use Model\Profesion;
 use MVC\Router;
+use Model\Grado;
+use Model\Cliente;
+use Model\Profesion;
+use Classes\Paginacion;
 
 class ClienteController {
 
@@ -28,11 +28,11 @@ class ClienteController {
       
       $paginacion = new Paginacion($pagina_actual, $por_pagina, $total);
       $clientes = Cliente::paginar($por_pagina, $paginacion->offet());
-      foreach ($clientes as $cliente) {
-         $cliente->prefesion = Profesion::find($cliente->idProfesion);
+      foreach($clientes as $cliente) {
+         $cliente->profesion = Profesion::find($cliente->idProfesion);
          $cliente->grado = Grado::find($cliente->idGrado);
       }
-      
+
       $router->renderizar('admin/cliente/index', [
          'titulo' => 'Lista de Clientes',
          'clientes' => $clientes,
@@ -60,8 +60,11 @@ class ClienteController {
          if(empty($alertas)) {
             $existeCliente = Cliente::whereArrayOR(['email' => $cliente->email, 'numeroDocumento' => $cliente->numeroDocumento]);
             if($existeCliente) {
-               Cliente::setAlerta('error', 'El Cliente ya esta registrado, Correo o Cocumento son iguales');
+               Cliente::setAlerta('error', 'El Cliente ya esta registrado, Correo o Documento son iguales');
             } else {
+               if(!$cliente->fechaNacimiento) {
+                  $cliente->fechaNacimiento = null;
+               }
                $resultado = $cliente->guardar();
                if($resultado) {
                   header('Location: /admin/clientes');

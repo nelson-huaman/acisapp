@@ -1,6 +1,6 @@
 <fieldset class="formulario__fieldset">
    <legend class="formulario__legend">Información Personal</legend>
-   <div class="formulario__campo">
+   <div class="formulario__row">
       <label for="nombre" class="formulario__label">Nombres</label>
       <input
          type="text"
@@ -11,7 +11,7 @@
          class="formulario__input"
       >
    </div>
-   <div class="formulario__campo">
+   <div class="formulario__row">
       <label for="apellidoPaterno" class="formulario__label">Apellido Paterno</label>
       <input
          type="text"
@@ -22,7 +22,7 @@
          class="formulario__input"
       >
    </div>
-   <div class="formulario__campo">
+   <div class="formulario__row">
       <label for="apellidoMaterno" class="formulario__label">Apellido Materno</label>
       <input
          type="text"
@@ -33,7 +33,7 @@
          class="formulario__input"
       >
    </div>
-   <div class="formulario__campo">
+   <div class="formulario__row">
       <label for="dni" class="formulario__label">DNI</label>
       <input
          type="text"
@@ -44,7 +44,7 @@
          class="formulario__input"
       >
    </div>
-   <div class="formulario__campo">
+   <div class="formulario__row">
       <label for="email" class="formulario__label">Correo</label>
       <input
          type="email"
@@ -55,7 +55,7 @@
          class="formulario__input"
       >
    </div>
-   <div class="formulario__campo">
+   <div class="formulario__row">
       <label for="rol" class="formulario__label">Asignar un rol</label>
       <select
          name="idRol"
@@ -68,7 +68,7 @@
          <?php } ?>
       </select>
    </div>
-   <div class="formulario__campo">
+   <div class="formulario__row">
       <label for="sede" class="formulario__label">Sede</label>
       <select
          name="idSede"

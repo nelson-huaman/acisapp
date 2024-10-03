@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title><?php echo $titulo; ?> | ACIS</title>
-      <link rel="icon" type="image/x-icon" href="/build/img/icono.ico">
+      <link rel="icon" type="image/png" href="/build/img/logo-acis-azul.png">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -15,15 +15,13 @@
 
       <?php include_once __DIR__ .'/templates/admin-sidebar.php'; ?>
       <div class="dashboard__grid">
-         <div class="dashboard__header">
-            <?php include_once __DIR__ .'/templates/admin-header.php'; ?>
-         </div>
+         <?php include_once __DIR__ .'/templates/admin-header.php'; ?>
          <main class="dashboard__contenido">
             <?php echo $contenido; ?> 
          </main>
       </div>
 
-      <script src="/build/js/app.min.js" defer></script>
+      <script src="/build/js/app.min.js"></script>
       
    </body>
 </html>

@@ -1,31 +1,21 @@
-<div class="header">
-   <button class="header__menu">
-      <i class="fa-solid fa-bars"></i>
-   </button>
-   <button class="header__usuario">
-      <i class="fa-solid fa-circle-user"></i>
-   </button>
-   <div class="header__perfil">
-      <div class="header__nombre">
-         <?php echo $_SESSION['nombre']; ?>
-         <span class="header__nombre--rol">Administrador</span>
-      </div>
-      <div class="header__nav">
-         <a href="#" class="header__enlace">
-            <i class="header__icon fa-solid fa-user"></i>
-            <spna class="header__name">Perfil</spna>
-         </a>
-         <a href="#" class="header__enlace">
-            <i class="header__icon fa-solid fa-gear"></i>
-            <spna class="header__name">Configuración</spna>
-         </a>
-         <form action="/logout" method="post" class="header__enlace">
-            <i class="header__icon fa-solid fa-right-from-bracket"></i>
-            <input type="submit" value="Cerrar Sesión" class="header__submit header__submit--logout">
-         </form>
-      </div>
+<header class="header">
+   <div class="header__menu">
+      <button class="header__open-mobil"><i class="fa-solid fa-bars"></i></button>
+      <button class="header__open-pc"><i class="fa-solid fa-bars"></i></button>
+      <span class="header__titulo"><?php echo $titulo; ?></span>
    </div>
-   <button class="header__open">
-      <i class="fa-solid fa-bars"></i>
-   </button>
-</div>
+   <ul class="header__aviso">
+      <li class="header__item">
+         <a href="#" class="header__enlace">
+            <i class="fa-solid fa-bell"></i>
+            <span>1</span>
+         </a>
+      </li>
+      <li class="header__item">
+         <a href="#" class="header__enlace">
+            <i class="fa-solid fa-comments"></i>
+            <span>2</span>
+         </a>
+      </li>
+   </ul>
+</header>

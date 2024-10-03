@@ -1,11 +1,20 @@
 <?php
 
+use Controllers\AClienteController;
+use Controllers\ADashboardController;
+use Controllers\APIGrados;
+use Controllers\APIMatriculas;
+use Controllers\APIProfesiones;
+use Controllers\APIUsuarios;
+use Controllers\AServicioController;
 use Controllers\AsesorController;
+use Controllers\AVentaController;
 use Controllers\CategoriaController;
 use Controllers\ClienteController;
 use Controllers\DashboardController;
 use Controllers\GradoController;
 use Controllers\LoginController;
+use Controllers\MatriculaController;
 use Controllers\ModalidadController;
 use Controllers\ProfesionController;
 use Controllers\PromocionController;
@@ -114,6 +123,27 @@ $router->get('/admin/clientes/grados/editar', [GradoController::class, 'editar']
 $router->post('/admin/clientes/grados/editar', [GradoController::class, 'editar']);
 $router->post('/admin/clientes/grados/estado', [GradoController::class, 'estado']);
 $router->post('/admin/clientes/grados/eliminar', [GradoController::class, 'eliminar']);
+
+$router->get('/admin/matriculas', [MatriculaController::class, 'index']);
+$router->get('/admin/matriculas/crear', [MatriculaController::class, 'crear']);
+$router->post('/admin/matriculas/crear', [MatriculaController::class, 'crear']);
+$router->get('/admin/matriculas/editar', [MatriculaController::class, 'editar']);
+$router->post('/admin/matriculas/editar', [MatriculaController::class, 'editar']);
+$router->post('/admin/matriculas/estado', [MatriculaController::class, 'estado']);
+$router->post('/admin/matriculas/eliminar', [MatriculaController::class, 'eliminar']);
+$router->get('/admin/matriculas/detalle', [MatriculaController::class, 'detalle']);
+$router->get('/admin/matriculas/incidencia', [MatriculaController::class, 'incidencia']);
+
+
+$router->get('/api/usuarios', [APIUsuarios::class, 'index']);
+$router->post('/api/usuarios/crear', [APIUsuarios::class, 'crear']);
+$router->get('/api/matriculas', [APIMatriculas::class, 'index']);
+$router->get('/api/profesiones', [APIProfesiones::class, 'index']);
+$router->get('/api/grados', [APIGrados::class, 'index']);
+
+
+
+
 
 
 

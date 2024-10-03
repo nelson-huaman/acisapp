@@ -30,7 +30,6 @@ class ServicioController {
 
       foreach($servicios as $servicio) {
          $servicio->categoria = Categoria::find($servicio->idCategoria);
-         $servicio->modalidad = Modalidad::find($servicio->idModalidad);
       }
 
       $router->renderizar('admin/servicio/index', [
@@ -73,7 +72,6 @@ class ServicioController {
                }
             }
          }
-
       }
 
       $alertas = Servicio::getAlertas();
@@ -119,9 +117,7 @@ class ServicioController {
                header('Location: /admin/servicios');
             }
          }
-
       }
-
 
       $router->renderizar('admin/servicio/editar', [
          'titulo' => 'Actualizar Servicios',
@@ -160,7 +156,6 @@ class ServicioController {
             header('Location: /admin/servicios');
          }
       }
-
    }
 
    public static function eliminar() {
@@ -187,7 +182,6 @@ class ServicioController {
             header('Location: /admin/servicios');
          }
       }
-
    }
 
 }
