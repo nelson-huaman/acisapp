@@ -2,65 +2,7 @@
 @use 'base/mixins' as m;
 
 .menu {
-   // position: fixed;
-   // top: 0;
-   // left: 0;
-   // bottom: 0;
-   // z-index: 2;
-   // display: flex;
-   // flex-direction: column;
-   // width: 80%;
-   // overflow: auto;
-   // background-color: adjust-color(v.$azul, $lightness: -30%);
-   // padding: 2rem;
-   // transform: translate3d(-100%, 0, 0);
-   // transition: transform .4s cubic-bezier(0.23, 1, 0.32, 1);
-   // @include m.lista;
-
-   // @include m.tablet {
-   //    width: 60%;
-   // }
-
-   // @include m.desktop {
-   //    position: static;
-   //    width: 100%;
-   //    background-color: transparent;
-   //    transform: none;
-   //    padding: 0;
-   //    box-shadow: none;
-      
-   // }
-
-   &__header {
-      display: flex;
-      justify-content: space-between;
-      padding: 2rem;
-      margin-bottom: 2rem;
-
-      @include m.desktop {
-         justify-content: center;
-      }
-   }
-
-   &__logo {
-      max-width: 10rem;
-      min-width: 10rem;
-   }
-
-   &__close {
-      @include m.enlace;
-      & {
-         font-size: 3rem;
-      }
-
-      &:hover {
-         color: adjust-color(v.$blanco, $lightness: -10%);
-      }
-
-      @include m.desktop {
-         display: none;
-      }
-   }
+   @include m.lista;
 
    &__item {
       padding: 1.2rem 2rem;
@@ -79,7 +21,7 @@
 
       &:hover {
          cursor: pointer;
-         background-color: adjust-color(v.$dark, $lightness: 0%);
+         background-color: adjust-color(v.$azul, $lightness: -10%);
          transition: background-color .5s ease;
          color: v.$blanco;
       }
@@ -115,29 +57,27 @@
       @include m.lista;
       padding-left: 2rem;
       font-size: 1.2rem;
-      display: none;
+      height: 0;
+      visibility: hidden;
    }
 
    &__activo {
-      background-color: adjust-color(v.$dark, $lightness: 0%);
-   }
+      background-color: adjust-color(v.$azul, $lightness: -10%);
 
-   &__activo &__enlace{
-      color: v.$blanco;
-   }
+      .menu__enlace {
+         color: v.$blanco;
+      }
 
-   &__activo &__submenu {
-      display: block;
-   }
+      .menu__submenu {
+         height: 100%;
+         visibility: visible;
+      }
 
-   &__activo &__icono {
-      &::after {
-         rotate: 50grad;
+      .menu__icono {
+         &::after {
+            rotate: 50grad;
+         }
       }
    }
-
-   // &__redes {
-   //    @include m.redes(v.$azul, 2rem);
-   // }
 
 }

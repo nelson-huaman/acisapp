@@ -4,43 +4,52 @@
 .sidebar {
    display: flex;
    flex-direction: column;
-   justify-content: space-between;
    position: fixed;
    top: 0;
    left: 0;
    bottom: 0;
    z-index: 2;
-   width: 80%;
-   
+   width: 100%;
+   overflow: auto;
    transform: translate3d(-100%, 0, 0);
    transition: transform .4s cubic-bezier(0.23, 1, 0.32, 1);
-
-   // &::before {
-   //    content: '';
-   //    position: fixed;
-   //    top: 0;
-   //    left: 0;
-   //    right: 0;
-   //    bottom: 0;
-   //    z-index: -1;
-   //    transition: background-color .5s;
-
-   //    @include m.desktop {
-   //       display: none;
-   //    }
-   // }
-
-   @include m.tablet {
-      width: 60%;
-   }
 
    @include m.desktop {
       position: static;
       width: 25rem;
-      visibility: visible;
       transform: translate3d(0, 0, 0);
       transition: width 5s;
       transition-duration: .5s;
+   }
+
+   &__div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(v.$negro, .9);
+      z-index: -1;
+
+      @include m.desktop {
+         display: none;
+      }
+   }
+
+   &__nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 80%;
+      height: 100%;
+
+      @include m.tablet {
+         width: 60%;
+      }
+
+      @include m.desktop {
+         width: 100%;
+      }
    }
 
    &__header {
@@ -101,6 +110,7 @@
          color: v.$blanco;
          display: flex;
          flex-direction: column;
+         white-space: nowrap;
          
          span {
             font-weight: v.$regular;
@@ -137,15 +147,9 @@
    }
 
    &__toogle {
-      visibility: hidden;
       width: 0;
+      transform: width .5s;
       transition-duration: .5s;
-
-      .sidebar__header,
-      .sidebar__footer {
-         visibility: hidden;
-      }
-
    }
    
    &__show {
@@ -153,19 +157,5 @@
       transition-duration: .7s;
       transition-delay: .4s;
       box-shadow: rgba(v.$negro, .2) 0 0 4rem 0.5rem;
-
-      &::before {
-         position: fixed;
-         content: '';
-         background-color: rgba(v.$negro, .5);
-         z-index: -1;
-         
-         top: 0;
-         left: 0;
-         right: 0;
-         bottom: 0;
-         background-color: red;
-      }
-
    }
 }

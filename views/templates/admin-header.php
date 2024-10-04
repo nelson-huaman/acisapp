@@ -17,5 +17,8 @@
             <span>2</span>
          </a>
       </li>
+      <li class="header__item--expandir">
+         <button class="header__enlace expandir"><i class="fa-solid fa-expand"></i></button>
+      </li>
    </ul>
 </header>
