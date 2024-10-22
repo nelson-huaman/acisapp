@@ -1,14 +1,15 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use "sass:color";
 
 .dashboard {
    height: 100%;
    display: flex;
    flex-direction: row;
-   background-color: adjust-color(v.$gris, $lightness: 6%);
+   background-color: color.adjust(v.$gris, $lightness: 6%);
 
    [class$="__heading"] {
-      margin: 0 0 2rem 0 ;
+      margin: 0;
       text-align: left;
       display: flex;
       flex-direction: row;
@@ -32,8 +33,16 @@
    }
 
    &__header {
-      padding: 1.5rem 2rem;
-      background-color: adjust-color(v.$dark, $lightness: 4%);
+      margin: 1rem 0 2rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+
+      @include m.tablet {
+         flex-direction: row;
+         justify-content: space-between;
+      }
    }
 
    &__contenido {
@@ -42,20 +51,20 @@
       overflow-y: scroll;
    }
 
-   &__contenedor-boton {
-      @include m.tablet {
-         display: flex;
-         justify-content: flex-end;
-         margin-bottom: 2rem;
-      }
-   }
+   // &__contenedor-boton {
+   //    @include m.tablet {
+   //       display: flex;
+   //       justify-content: flex-end;
+   //       margin-bottom: 2rem;
+   //    }
+   // }
 
    &__boton {
       @include m.boton(v.$azul, v.$blanco);
       & {
          font-size: 1.2rem;
          padding: 1rem 2rem;
-         margin-bottom: 1rem;
+         // margin-bottom: 1rem;
       }
 
       @include m.tablet {

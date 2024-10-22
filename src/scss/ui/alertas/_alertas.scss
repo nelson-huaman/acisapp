@@ -1,4 +1,5 @@
 @use 'base/variables' as v;
+@use "sass:color";
 
 .alerta {
    padding: .6rem 1rem .8rem 2rem;
@@ -6,14 +7,14 @@
    font-weight: v.$bold;
 
    &--error {
-      background-color: adjust-color(v.$error, $lightness: 60%);
+      background-color: color.adjust(v.$error, $lightness: 60%);
       border-left: .5rem solid v.$error;
       color: v.$error;
    }
 
    &--exito {
-      background-color: adjust-color(v.$exito, $lightness: 40%);
+      background-color: color.adjust(v.$exito, $lightness: 40%);
       border-left: .5rem solid v.$exito;
-      color: adjust-color(v.$exito, $lightness: -20%);
+      color: color.adjust(v.$exito, $lightness: -20%);
    }
 }

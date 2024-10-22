@@ -1,7 +1,8 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
-.table {
+.tabla {
    width: 100%;
    border-collapse: collapse;
    white-space: nowrap;
@@ -10,7 +11,7 @@
    }
 
    &__thead {
-      background-color: adjust-color(v.$dark, $lightness: -15%);
+      background-color: color.adjust(v.$dark, $lightness: -15%);
       color: v.$blanco;
    }
 
@@ -23,7 +24,7 @@
 
    &__tr {
       &:nth-child(even) {
-         background-color: adjust-color(v.$gris, $lightness: 2%);
+         background-color: color.adjust(v.$gris, $lightness: 2%);
       }
    }
 
@@ -54,7 +55,7 @@
       font-weight: v.$bold;
 
       &--activo {
-         color: adjust-color(v.$exito, $lightness: -15%);
+         color: color.adjust(v.$exito, $lightness: -15%);
       }
 
       &--inactivo {

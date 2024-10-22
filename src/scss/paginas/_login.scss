@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .login {
    @include m.contenedorSM;
@@ -13,7 +14,7 @@
       display: flex;
       justify-content: center;
       @include m.textoFluido(3rem, 5rem);
-      @include m.textoDegradado(v.$azul, adjust-color(v.$azul, $lightness: 20%));
+      @include m.textoDegradado(v.$azul, color.adjust(v.$azul, $lightness: 20%));
    }
 
    &__nombre {

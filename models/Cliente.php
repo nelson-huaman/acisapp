@@ -38,29 +38,29 @@ class Cliente extends ActiveRecord {
    }
    
    public function validarCliente() : array {
-      // if(!$this->nombre) {
-      //    self::$alertas['error'][] = 'El nombre es obligatorio';
-      // }
+      if(!$this->nombre) {
+         self::$alertas['error'][] = 'El nombre es obligatorio';
+      }
 
-      // if(!$this->apellidoPaterno) {
-      //    self::$alertas['error'][] = 'El apellido paterno es obligatorio';
-      // }
+      if(!$this->apellidoPaterno) {
+         self::$alertas['error'][] = 'El apellido paterno es obligatorio';
+      }
 
-      // if(!$this->tipoDocumento) {
-      //    self::$alertas['error'][] = 'El tipo de documento es obligatorio';
-      // }
+      if(!$this->tipoDocumento) {
+         self::$alertas['error'][] = 'El tipo de documento es obligatorio';
+      }
 
-      // if(!$this->numeroDocumento) {
-      //    self::$alertas['error'][] = 'El número de documento es obligatorio';
-      // }
+      if(!$this->numeroDocumento) {
+         self::$alertas['error'][] = 'El número de documento es obligatorio';
+      }
 
-      // if(!$this->email) {
-      //    self::$alertas['error'][] = 'El correo es obligatorio';
-      // }
+      if(!$this->email) {
+         self::$alertas['error'][] = 'El correo es obligatorio';
+      }
 
-      // if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-      //    self::$alertas['error'][] = 'Correo no válido';
-      // }
+      if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+         self::$alertas['error'][] = 'Correo no válido';
+      }
 
       return self::$alertas;
    }

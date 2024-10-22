@@ -1,9 +1,7 @@
-<h2 class="dashboard__heading"><?php echo $titulo; ?></h2>
-
-<div class="dashboard__contenedor-boton">
+<div class="dashboard__header">
+   <h2 class="dashboard__heading"><?php echo $titulo; ?></h2>
    <a href="/admin/matriculas/crear" class="dashboard__boton">
-      <i class="fa-solid fa-circle-plus"></i>
-      Añadir Matrícula
+      <i class="fa-solid fa-circle-plus"></i> Añadir Matrícula
    </a>
 </div>
 

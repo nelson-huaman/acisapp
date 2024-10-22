@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .header {
    display: flex;
@@ -23,7 +24,7 @@
       font-size: 2rem;
 
       &:hover {
-         color: adjust-color(v.$azul, $lightness: -10%);
+         color: color.adjust(v.$azul, $lightness: -10%);
       }
    }
 
@@ -34,9 +35,9 @@
    }
 
    &__open-pc {
-      visibility: hidden;
+      display: none;
       @include m.desktop {
-         visibility: visible;
+         display: block;
       }
    }
 
@@ -63,15 +64,14 @@
          display: flex;
          align-items: center;
          justify-content: center;
-         background-color: adjust-color(v.$error, $lightness: -5%);
+         background-color: color.adjust(v.$error, $lightness: -5%);
          color: v.$blanco;
          font-size: 1rem;
          font-weight: v.$medium;
-         
       }
 
       &:hover {
-         color: adjust-color(v.$azul, $lightness: -10%);
+         color: color.adjust(v.$azul, $lightness: -10%);
       }
    }
 

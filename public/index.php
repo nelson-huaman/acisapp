@@ -1,14 +1,12 @@
 <?php
 
-use Controllers\AClienteController;
-use Controllers\ADashboardController;
+use Controllers\APIBeneficios;
 use Controllers\APIGrados;
 use Controllers\APIMatriculas;
 use Controllers\APIProfesiones;
-use Controllers\APIUsuarios;
-use Controllers\AServicioController;
+use Controllers\APIClientes;
+use Controllers\APIServicios;
 use Controllers\AsesorController;
-use Controllers\AVentaController;
 use Controllers\CategoriaController;
 use Controllers\ClienteController;
 use Controllers\DashboardController;
@@ -135,16 +133,16 @@ $router->get('/admin/matriculas/detalle', [MatriculaController::class, 'detalle'
 $router->get('/admin/matriculas/incidencia', [MatriculaController::class, 'incidencia']);
 
 
-$router->get('/api/usuarios', [APIUsuarios::class, 'index']);
-$router->post('/api/usuarios/crear', [APIUsuarios::class, 'crear']);
+$router->get('/api/clientes', [APIClientes::class, 'index']);
+$router->post('/api/cliente/crear', [APIClientes::class, 'crear']);
+$router->post('/api/cliente/actualizar', [APIClientes::class, 'actualizar']);
+$router->post('/api/cliente', [APIClientes::class, 'cliente']);
 $router->get('/api/matriculas', [APIMatriculas::class, 'index']);
+$router->get('/api/matricula', [APIMatriculas::class, 'matricula']);
 $router->get('/api/profesiones', [APIProfesiones::class, 'index']);
 $router->get('/api/grados', [APIGrados::class, 'index']);
-
-
-
-
-
+$router->get('/api/servicios', [APIServicios::class, 'lista']);
+$router->get('/api/beneficios', [APIBeneficios::class, 'lista']);
 
 
 $router->comprobarURL();

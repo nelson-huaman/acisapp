@@ -21,21 +21,28 @@ class APIMatriculas {
          return;
       }
 
-
-
       $matriculas = Matricula::all();
-      foreach($matriculas as $matricula) {
-         $matricula->usuario = Usuario::find($matricula->idUsuario);
-         $matricula->cliente = Cliente::find($matricula->idCliente);
-         $matricula->servicio = Servicio::find($matricula->idServicio);
-         $matricula->modalidad = Modalidad::find($matricula->idModalidad);
-         $matricula->fuente = Fuente::find($matricula->idFuente);
-         $matricula->promocion = Promocion::find($matricula->idPromocion);
-         $matricula->beneficio = Beneficio::find($matricula->idBeneficio);
-         $matricula->accesoio = Accesorio::find($matricula->idAccesorio);
-      }
-
       echo json_encode($matriculas);
       
    }
+
+   public static function matricula() {
+      if(!isAdmin()) {
+         header('Location: /');
+         return;
+      }
+
+      $token = filter_var($_GET['token'], FILTER_VALIDATE_INT);
+      if(!$token || $token < 1) {
+         header('Location: /admin/dashboard');
+      }
+
+
+      // $matricula = Matricula::find($token);
+      $matriculas = Matricula::whereID('idCliente', $token);
+
+      echo json_encode($matriculas);
+   }
+
+
 }

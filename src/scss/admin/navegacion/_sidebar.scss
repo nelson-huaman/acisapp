@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use "sass:color";
 
 .sidebar {
    display: flex;
@@ -53,7 +54,7 @@
    }
 
    &__header {
-      background-color: adjust-color(v.$azul, $lightness: -26%);
+      background-color: color.adjust(v.$azul, $lightness: -26%);
       padding: 2rem;
    }
 
@@ -115,7 +116,7 @@
          span {
             font-weight: v.$regular;
             font-size: 1.2rem;
-            color: adjust-color(v.$exito, $lightness: 10%);
+            color: color.adjust(v.$exito, $lightness: 10%);
          }
       }
 
@@ -124,11 +125,11 @@
    &__menu {
       flex: 1;
       overflow-y: scroll;
-      background-color: adjust-color(v.$azul, $lightness: -22%);
+      background-color: color.adjust(v.$azul, $lightness: -22%);
    }
 
    &__footer {
-      background-color: adjust-color(v.$azul, $lightness: -26%);
+      background-color: color.adjust(v.$azul, $lightness: -26%);
       display: flex;
       justify-content: space-between;
       padding: 2rem;

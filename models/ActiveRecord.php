@@ -59,7 +59,8 @@ class ActiveRecord {
       $resultado = self::$db->query($query);
       return [
          'resultado' => $resultado,
-         'id' => self::$db->insert_id
+         // 'id' => self::$db->insert_id,
+         $this->id = self::$db->insert_id
       ];
    }
 

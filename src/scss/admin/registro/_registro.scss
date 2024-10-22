@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .registros {
    display: flex;
@@ -25,7 +26,7 @@
    &__buscar {
       all: unset;
       padding: .5rem 1rem;
-      border: 1px solid adjust-color(v.$dark, $lightness: -30%);
+      border: 1px solid color.adjust(v.$dark, $lightness: -30%);
       border-radius: 1rem;
       // width: 100%;
    }

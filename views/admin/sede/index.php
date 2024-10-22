@@ -1,9 +1,7 @@
-<h2 class="dashboard__heading"><?php echo $titulo; ?></h2>
-
-<div class="dashboard__contenedor-boton">
+<div class="dashboard__header">
+   <h2 class="dashboard__heading"><?php echo $titulo; ?></h2>
    <a href="/admin/asesores/sedes/crear" class="dashboard__boton">
-      <i class="fa-solid fa-circle-plus"></i>
-      Añadir Sede
+      <i class="fa-solid fa-circle-plus"></i> Añadir Sede
    </a>
 </div>
 

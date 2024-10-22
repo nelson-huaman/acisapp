@@ -16,7 +16,6 @@
       let matriculas = []
       let matriculasFiltadas = []
 
-
       // Iniciar Conexion a los API
       listarClientes()
       listarProfesiones()
@@ -91,7 +90,7 @@
          modalCliente.innerHTML = `
             <form class="formulario usuario-nuevo">
                <fieldset class="formulario__fieldset">
-                  <legend>Información Personal</legend>
+                  <legend >Información Personal</legend>
                   <div class="formulario__colunm">
                      <div class="formulario__row">
                         <label for="tipoDocumento" class="formulario__label">Tipo de Documento</label>

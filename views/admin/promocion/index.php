@@ -1,9 +1,7 @@
-<h2 class="dashboard__heading"><?php echo $titulo; ?></h2>
-
-<div class="dashboard__contenedor-boton">
+<div class="dashboard__header">
+   <h2 class="dashboard__heading"><?php echo $titulo; ?></h2>
    <a href="/admin/servicios/promociones/crear" class="dashboard__boton">
-      <i class="fa-solid fa-circle-plus"></i>
-      Añadir Promoción
+      <i class="fa-solid fa-circle-plus"></i> Añadir Promoción
    </a>
 </div>
 

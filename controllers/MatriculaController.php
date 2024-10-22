@@ -51,7 +51,7 @@ class MatriculaController {
          return;
       }
 
-      $router->renderizar('admin/matricula/crear', [
+      $router->renderizar('admin/matricula/matricula', [
          'titulo' => 'Registrar Matrícula'
       ]);
    }

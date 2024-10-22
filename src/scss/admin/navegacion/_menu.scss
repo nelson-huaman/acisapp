@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .menu {
    @include m.lista;
@@ -21,14 +22,14 @@
 
       &:hover {
          cursor: pointer;
-         background-color: adjust-color(v.$azul, $lightness: -10%);
+         background-color: color.adjust(v.$azul, $lightness: -10%);
          transition: background-color .5s ease;
          color: v.$blanco;
       }
    }
 
    &__enlace {
-      color: adjust-color(v.$blanco, $lightness: -40%);
+      color: color.adjust(v.$blanco, $lightness: -40%);
       font-weight: v.$medium;
       white-space: nowrap;
       display: flex;
@@ -57,20 +58,18 @@
       @include m.lista;
       padding-left: 2rem;
       font-size: 1.2rem;
-      height: 0;
-      visibility: hidden;
+      display: none;
    }
 
    &__activo {
-      background-color: adjust-color(v.$azul, $lightness: -10%);
+      background-color: color.adjust(v.$azul, $lightness: -10%);
 
       .menu__enlace {
          color: v.$blanco;
       }
 
       .menu__submenu {
-         height: 100%;
-         visibility: visible;
+         display: block;
       }
 
       .menu__icono {

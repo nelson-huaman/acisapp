@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .formulario {
    display: flex;
@@ -7,14 +8,22 @@
 
    &__fieldset {
       all: unset;
-      margin-top: 1rem;
+      // margin-top: 1rem;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+
+      &--ocultar {
+         display: none;
+      }
+
+      &--mostrar {
+         display: block;
+      }
    }
 
    &__legend {
-      color: adjust-color(v.$gris, $lightness: -50%);
+      color: color.adjust(v.$gris, $lightness: -50%);
       font-size: 2rem;
       margin-bottom: 1rem;
    }
@@ -42,11 +51,24 @@
    &__input,
    &__select {
       all: unset;
-      padding: .6rem 1rem;
-      border: 1px solid adjust-color(v.$dark, $lightness: -50%);
+      padding: .5rem 1rem;
+      border: 1px solid color.adjust(v.$dark, $lightness: -50%);
       border-radius: .8rem;
       box-sizing: border-box;
       width: 100%;
+
+      &--error {
+         border: 2px solid v.$error;
+         background-color: rgba(v.$error, .2);
+         color: v.$error;
+      }
+   }
+
+   &__error {
+      text-align: right;
+      font-weight: v.$medium;
+      color: v.$error;
+      font-size: 1.2rem;
    }
 
    &__submit {
@@ -54,11 +76,16 @@
       & {
          padding: 1rem;
          margin-top: 2rem;
+         box-sizing: border-box;
       }
 
       &--registrar,
       &--full {
          width: 100%;
+      }
+
+      &--disable {
+         opacity: 0.5;
       }
    }
    
